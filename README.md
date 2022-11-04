@@ -16,7 +16,7 @@ Supply a json file like this:
         "G:/Games/GOG/Cyberpunk 2077/engine/config"
     ],
     "output": [
-        "D:/Backups/Cyberpunk/CY2077_Backup_%dd%_%mm%_%yyyy%__%hh%_%mm%_%ss%.zip"
+        "D:/Backups/Cyberpunk/CY2077_Backup_%DD%_%MM%_%YYYY%__%hh%_%mm%_%ss%.zip"
     ]
 }
 ```
@@ -30,7 +30,7 @@ Key | Meaning
 includeConfig | Include the json Config file named "ZipMeUpConfig.json"
 includeLog | Include a log of what was done named "ZipMeUpLog.log"
 log | Log whats happening in the console
-formatOutput | Replace %dd%, %mm% etc with data of time and date
+formatOutput | Replace %dd%, %mm% etc with data of time and date (DD, MM, YYYY for dates, lowercase for time)
 input | List of files/folders to add to the input list
 output | List of files/folders to add to the output list
 

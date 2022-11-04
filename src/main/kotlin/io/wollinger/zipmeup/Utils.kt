@@ -42,9 +42,9 @@ object Utils {
         fun fZ(i: Int): String = if(i > 9) i.toString() else "0$i"
 
         val now = LocalDateTime.now()
-        result = result.replace("%dd%", fZ(now.dayOfMonth))
-        result = result.replace("%mm%", fZ(now.monthValue))
-        result = result.replace("%yyyy%", now.year.toString())
+        result = result.replace("%DD%", fZ(now.dayOfMonth))
+        result = result.replace("%MM%", fZ(now.monthValue))
+        result = result.replace("%YYYY%", now.year.toString())
 
         result = result.replace("%hh%", fZ(now.hour))
         result = result.replace("%mm%", fZ(now.minute))
