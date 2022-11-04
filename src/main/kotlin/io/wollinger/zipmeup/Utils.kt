@@ -1,9 +1,24 @@
 package io.wollinger.zipmeup
 
+import net.lingala.zip4j.model.ZipParameters
+import net.lingala.zip4j.model.enums.CompressionLevel
+import java.io.File
 import java.time.LocalDateTime
 
 object Utils {
-    val isWindows = System.getProperty("os.name").lowercase().contains("windows")
+
+    fun getParams(file: File): ZipParameters {
+        return ZipParameters().also { params ->
+            var rootName = file.path
+            if(file.isAbsolute && isWindows)
+                rootName = rootName.replaceFirst(":", "_DRIVE")
+            rootName = rootName.replace(file.name, "")
+            params.rootFolderNameInZip = rootName
+            params.compressionLevel = CompressionLevel.ULTRA
+        }
+    }
+
+    private val isWindows = System.getProperty("os.name").lowercase().contains("windows")
 
     fun formatEnv(string: String): String {
         var result = string
