@@ -9,6 +9,8 @@ object Utils {
 
     fun getParams(file: File): ZipParameters {
         return ZipParameters().also { params ->
+            //TODO: Check if we should use absolute path to make this work on linux?
+            //Either way, might be better
             var rootName = file.path
             if(file.isAbsolute && isWindows)
                 rootName = rootName.replaceFirst(":", "_DRIVE")
