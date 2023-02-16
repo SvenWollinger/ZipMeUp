@@ -14,7 +14,7 @@ object Utils {
             var rootName = file.path
             if(file.isAbsolute && isWindows)
                 rootName = rootName.replaceFirst(":", "_DRIVE")
-            rootName = rootName.replace(file.name, "")
+            rootName = rootName.replaceLast(file.name, "")
             params.rootFolderNameInZip = rootName
             params.compressionLevel = CompressionLevel.ULTRA
         }
@@ -55,3 +55,5 @@ object Utils {
         return result
     }
 }
+
+fun String.replaceLast(toReplace: String, replacement: String) = replaceFirst(Regex("(?s)$toReplace(?!.*?$toReplace)"), replacement)
